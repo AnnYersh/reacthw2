@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+    
+    <script type="text/babel">
+        function App() {
+            
+            let title = 'Игры'
+            let vvod = 'Введите имя'
+            let [items, setItems ] = React.useState(['chess', 'poker', 'darts'])
+            let [ chess, setChess ] = React.useState([ 'Vanya', 'Tanya' ])
+            let [ poker, setPoker ] = React.useState([ 'Izya', 'Pasha' ])
+            let [ darts, setDarts ] = React.useState([ 'Sasha', 'Kolya' ])
+
+            let [player, setPlayer ] = React.useState('')
+            let [game, setGame ] = React.useState('')     
+            
+            //const adding 
+            
+            return (
+                <div className="wrapper">
+                    <h1>{title}</h1>
+                    <form>
+                        <input 
+                            type="text" 
+                            placeholder = {vvod}
+                            value={player}
+                            onChange={(event) => setPlayer(event.target.value)}
+                        />
+                        <select  value={game} onChange={(event) => setGame(event.target.value)}>
+                            <option>Выберите игру</option>    
+                            <option>Chess</option>  
+                            <option>Poker</option>  
+                            <option>Darts</option>  
+                        </select>
+                        <button onClick={() => adding()}>Добавить</button>                                                                       
+                    </form>   
+                    <div class="items">
+                        <div className="item">
+                            <h3>{items[0]}</h3>   
+                            <ul className="list">
+                                {chess.map((chel,i) => (
+                                <li key={i}>
+                                {chel}
+                                </li>
+                                ))}
+                            </ul>                    
+                        </div>             
+                        <div className="item">
+                            <h3>{items[1]}</h3>                                               
+                            <ul className="list">
+                                {poker.map((chel,i) => (
+                                <li key={i}>
+                                {chel}
+                                </li>
+                                ))}
+                            </ul>  
+                        </div>  
+                        <div className="item">
+                            <h3>{items[2]}</h3> 
+                            <ul className="list">
+                                {darts.map((chel,i) => (
+                                <li key={i}>
+                                {chel}
+                                </li>
+                                ))}
+                            </ul>                         
+                        </div>  
+                    </div> 
+                </div>                 
+
+            )
+        }
+        
+
+        
+        const app = document.getElementById('root')
+        const root = ReactDOM.createRoot(app)
+        root.render(<App/>)
+       
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+    
+    <script type="text/babel">
+        function App() {
+            
+            let title = 'Игры'
+            let vvod = 'Введите имя'
+            let [list, setList ] = React.useState(['chess', 'poker', 'darts'])
+            let [ chess, setChess ] = React.useState([ 'Vanya', 'Tanya' ])
+            let [ poker, setPoker ] = React.useState([ 'Izya', 'Pasha' ])
+            let [ darts, setDarts ] = React.useState([ 'Sasha', 'Kolya' ])
+
+
+            let [player, setPlayer ] = React.useState('')
+            let [game, setGame ] = React.useState('')
+           
+            
+            const addNote = (event) => {
+                event.preventDefault();}
+            
+            return (
+                <div className="wrapper">
+                    <h1>{title}</h1>
+ 
+                    <h1>{game}</h1>
+                    <form onSubmit={(event) => addNote(event)}>
+                        <input 
+                            type="text" 
+                            placeholder = {vvod}
+                            value={player}
+                            onChange={(event) => setPlayer(event.target.value)}
+                        />
+                        <select  value={game} onChange={(event) => setGame(event.target.value)}>
+                            <option>Выберите игру</option>    
+                            <option>Chess</option>  
+                            <option>Poker</option>  
+                            <option>Darts</option>  
+                        </select>
+                        <button>Добавить</button>                                                
+                    </form>                    
+                    <ul className="list">
+                        {list.map((item,i) => (
+                            <li key={i}>
+                                <h3>{item}</h3> 
+                         
+                            </li>
+                        ))}
+                    </ul>                   
+                   
+                </div>
+            )
+        }
+        
+
+        
+        const app = document.getElementById('root')
+        const root = ReactDOM.createRoot(app)
+        root.render(<App/>)
+       
+    </script>
+</body>
+</html> -->
+
+
